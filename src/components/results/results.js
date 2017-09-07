@@ -12,13 +12,17 @@ const Results = props =>
           <h3 className="panel-title"><strong><i className="fa fa-list-alt"></i>Results</strong></h3>
         </div>
         <div className="panel-body">
-          <div className="panel panel-default">
-            <div className="panel-body display-flex align-center space-between">
+          {props.results.map(result =>
+            <div key={result._id} className="panel panel-default">
+              <div className="panel-body display-flex align-center">
 
-              <div className= "flex-none">Basic panel example</div>
-              <button type="submit" className="btn btn-success flex-none" id=""><i className="glyphicon glyphicon-floppy-disk"></i> Save</button>
+                <div className= "flex-auto truncate"><a href={result.web_url} target="_blank">{result.headline.main}</a><br/><small>{result.snippet}</small></div>
+
+                <button type="submit" className="btn btn-success flex-none" id=""><i className="glyphicon glyphicon-floppy-disk"></i> Save</button>
+              </div>
             </div>
-          </div>
+          )}
+          
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import "./search.css";
-import Results from "../results/results";
+
 
 
 // Using the datalist element we can create autofill suggestions based on the props.breeds array
@@ -18,16 +18,11 @@ const Search = props =>
             <form >
               <div className="form-group">
                 <label htmlFor="search">Search Term:</label>
-                <input type="text" className="form-control" id="search-term"/>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="pwd">Number of Records to Retrieve:</label>
-                <select className="form-control" id="num-records-select">
-                  <option value="1">1</option>
-                  <option value="5" defaultValue>5</option>
-                  <option value="10">10</option>
-                </select>
+                <input 
+                type="text" 
+                className="form-control"
+                value={props.search}
+                onChange={props.handleInputChange}/>
               </div>
 
               <div className="form-group">
@@ -40,15 +35,14 @@ const Search = props =>
                 <input type="text" className="form-control" id="end-year"/>
               </div>
 
-              <button type="submit" className="btn btn-default" id="run-search"><i className="fa fa-search"></i> Search</button>
-              <button type="button" className="btn btn-default" id="clear-all"><i className="fa fa-trash"></i> Clear Results</button>
+              <button type="submit" className="btn btn-primary" onClick={props.handleFormSubmit}><i className="fa fa-search"></i> Search</button>
 
             </form>
           </div>
         </div>
       </div>
     </div>
-    <Results/>
+    
   </div>
   ;
 
